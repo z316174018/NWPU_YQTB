@@ -86,21 +86,13 @@ def get_latest_chrome_driver(chrome_version):
 
 def check_chrome_driver_update():
     chrome_version = get_chrome_version()
-    driver_version = get_chrome_driver_version()
-    if chrome_version == driver_version:
-        print('No need to update')
-    else:
-        try:
-            get_latest_chrome_driver(chrome_version)
-        except Exception as e:
-            print(f'Fail to update: {e}')
+    try:
+        yqtb_nwpu()
+        messagebox.showinfo(title='填报结果',message='填报成功')
+    except:
+        get_latest_chrome_driver(chrome_version)
+        messagebox.showinfo(title='填报结果',message='填报失败')
 
 
 if __name__ == '__main__':
     check_chrome_driver_update()
-
-try:
-    yqtb_nwpu()
-    messagebox.showinfo(title='填报结果',message='填报成功')
-except:
-    messagebox.showinfo(title='填报结果',message='填报失败')
