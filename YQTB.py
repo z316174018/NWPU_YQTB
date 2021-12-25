@@ -80,11 +80,12 @@ def yqtb_nwpu(a):
     driver.get('http://yqtb.nwpu.edu.cn/wx/ry/jrsb.jsp')
     time.sleep(6)
     
-    driver.find_element(By.CLASS_NAME,'weui-cell__bd').click()
+    driver.find_element(By.XPATH,'//*[@id="rbxx_div"]/div[3]/label[2]/div[1]/p').click()
     driver.find_element(By.CLASS_NAME,'weui-btn_primary').click()#抓取提交按钮#提交
     sub2=driver.find_element(By.ID,'brcn')
     driver.execute_script("arguments[0].click();", sub2)
     driver.find_element(By.ID,'save_div').click()
+    driver.quit()
     messagebox.showinfo(title='填报结果',message='填报成功！')
 
 python_root = os.path.abspath('.')  # .py当前目录
