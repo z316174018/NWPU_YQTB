@@ -130,12 +130,12 @@ student_list = [
 ]
  
 def send_rtx(msg):
-    webhook = r"https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=552647ec-b0fc-42c3-961c-cae0bed49fcd"
+    webhook = r"#webhook的link"
     data = {
         'msgtype': 'text',
         'text': {
             'content': msg,
-            "mentioned_mobile_list": ["@郑博文"]
+            "mentioned_mobile_list": ["@all"]
         }
     }
     res = requests.post(webhook, data=json.dumps(data))
@@ -146,8 +146,6 @@ def send_rtx(msg):
 
 
 if __name__ == '__main__':
-    # 前一个参数为列表，参考上面的list示例
-    # 后一个参数为想填报的信息，在学校选择params_school，在家选择prams_home，具体参数参见注释，不定期更新
     import time
     import datetime
     while True:
